@@ -223,6 +223,40 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <script>
+        // Initialize EmailJS with your Public Key
+        emailjs.init("cjSvSlPdHj7F-ZpU4");
+
+        function sendMail(event) {
+            event.preventDefault(); // Prevent form submission refresh
+
+            // Capture form data
+            const fullName = document.getElementById("form-floating-1").value;
+            const email = document.getElementById("form-floating-2").value;
+            const number = document.getElementById("form-floating-3").value;
+            const service = document.getElementById("floatingSelect").value;
+
+            // Create data object for EmailJS
+            const templateParams = {
+                full_name: fullName,
+                email_address: email,
+                phone_number: number,
+                selected_service: service,
+            };
+
+            // Send data via EmailJS
+            emailjs.send("service_oc7b0op", "template_accpn6c", templateParams).then((response) => {
+                console.log("SUCCESS!", response.status, response.text);
+                alert("Your request has been sent successfully!");
+            })
+                .catch((error) => {
+                    console.error("FAILED...", error);
+                    alert("There was an error sending your request. Please try again.");
+                });
+        }
+    </script>
+
 </body>
 
 </html>

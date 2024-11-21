@@ -31,9 +31,8 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
 
 </head>
 
@@ -388,21 +387,20 @@
                         </div>
                         <div class="col-6">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control"  id="form-floating-2"
+                                <input type="email" class="form-control" id="form-floating-2"
                                     placeholder="name@example.com">
                                 <label for="form-floating-2">Email address</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="form-floating-3"
-                                    placeholder="22843930423">
+                                <input type="text" class="form-control" id="form-floating-3" placeholder="22843930423">
                                 <label for="form-floating-2">Number</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-floating">
-                                <select class="form-select"  id="floatingSelect" aria-label="Financial Consultancy">
+                                <select class="form-select" id="floatingSelect" aria-label="Financial Consultancy">
                                     <option selected>SEO</option>
                                     <option value="1">Social Media Marketing</option>
                                     <option value="2">Web Development</option>
@@ -412,7 +410,8 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary w-100 h-100" onclick="sendMail(event)" type="submit">Request A Quote</button>
+                            <button class="btn btn-primary w-100 h-100" onclick="sendMail(event)" type="submit">Request
+                                A Quote</button>
                         </div>
                     </div>
                 </form>
@@ -633,7 +632,7 @@
                 <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>85 Great Portland Street London W1W 7LT
                 </p>
                 <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>digitalmenia9@gmail.com</p>
-                <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+92 3271999972</p>
+                <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+44 7925184573</p>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-white mb-4">Follow Us</h3>
@@ -676,20 +675,20 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    
+
     <script>
         // Initialize EmailJS with your Public Key
         emailjs.init("cjSvSlPdHj7F-ZpU4");
-    
+
         function sendMail(event) {
             event.preventDefault(); // Prevent form submission refresh
-    
+
             // Capture form data
             const fullName = document.getElementById("form-floating-1").value;
             const email = document.getElementById("form-floating-2").value;
             const number = document.getElementById("form-floating-3").value;
             const service = document.getElementById("floatingSelect").value;
-    
+
             // Create data object for EmailJS
             const templateParams = {
                 full_name: fullName,
@@ -697,19 +696,19 @@
                 phone_number: number,
                 selected_service: service,
             };
-    
+
             // Send data via EmailJS
             emailjs.send("service_oc7b0op", "template_accpn6c", templateParams).then((response) => {
-                    console.log("SUCCESS!", response.status, response.text);
-                    alert("Your request has been sent successfully!");
-                })
+                console.log("SUCCESS!", response.status, response.text);
+                alert("Your request has been sent successfully!");
+            })
                 .catch((error) => {
                     console.error("FAILED...", error);
                     alert("There was an error sending your request. Please try again.");
                 });
         }
     </script>
-    
+
 
     </body>
 
